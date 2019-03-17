@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using CsvHelper;
@@ -17,22 +16,58 @@ namespace BallPlayerUpdater
 
                 //CSVReader will now read the whole file into an enumerable
                 IEnumerable<DataRecord> records = reader.GetRecords<DataRecord>();
-
-                foreach (DataRecord record in records.ToList())
+                Console.WriteLine("Please enter team initials for team roster:");
+                string nme = Console.ReadLine();
+                foreach (DataRecord record in records)
                 {
+
+                    if (record.Popcorn == nme)
+                    {
                     Console.WriteLine("{0}, {1}, {2}, {3}, {4} {5}", record.Name, record.Popcorn, record.Position,
                         record.Height, record.Weight, record.Age);
+                      
+                    }
+                    else {
+
+                       
+                      
+                    }
+
+                 
                 }
 
 
-                for (int i = 0; i < 35; i++)
+
+                Console.WriteLine("Which player would you like to modify?");
+                string plyr = Console.ReadLine();
+
+
+
+                foreach (DataRecord plr in records)
                 {
-                    Console.WriteLine("potato {0}", i);
+
+                    if (plr.Popcorn == nme)
+                    {
+                        Console.WriteLine("{0}, {1}, {2}, {3}, {4} {5}", plr.Name, plr.Popcorn, plr.Position,
+                            plr.Height, plr.Weight, plr.Age);
+
+                    }
+                    else
+                    {
+
+
+
+                    }
+
 
                 }
+
+
+            }
+                    
                 Console.ReadLine();
             }
         }
     }
-}
+
 
