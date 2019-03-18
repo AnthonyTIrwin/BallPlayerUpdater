@@ -14,46 +14,28 @@ namespace BallPlayerUpdater
             {
                 var reader = new CsvReader(sr);
 
-                //CSVReader will now read the whole file into an enumerable
+
                 IEnumerable<DataRecord> records = reader.GetRecords<DataRecord>();
                 Console.WriteLine("Please enter team initials for team roster:");
-                string nme = Console.ReadLine();
+                string Name = Console.ReadLine();
+
                 foreach (DataRecord record in records)
                 {
+            
 
-                    if (record.Popcorn == nme)
+
+
+                    if (record.Name == Name)
                     {
-                    Console.WriteLine("{0}, {1}, {2}, {3}, {4} {5}", record.Name, record.Popcorn, record.Position,
-                        record.Height, record.Weight, record.Age);
-                      
-                    }
-                    else {
+                        Console.WriteLine("{0}, {1}, {2}, {3}, {4} {5}", record.Name, record.Popcorn, record.Position,
+                            record.Height, record.Weight, record.Age);
+                        Console.WriteLine("What is the new team?");
+                        record.Popcorn = Console.ReadLine();
+                        Console.WriteLine("{0}, {1}, {2}, {3}, {4} {5}", record.Name, record.Popcorn, record.Position,
+                           record.Height, record.Weight, record.Age);
 
-                       
-                      
-                    }
+                     
 
-                 
-                }
-
-
-
-                Console.WriteLine("Which player would you like to modify?");
-                string plyr = Console.ReadLine();
-
-
-
-                foreach (DataRecord plr in records)
-                {
-
-                    if (plr.Popcorn == nme)
-                    {
-                        Console.WriteLine("{0}, {1}, {2}, {3}, {4} {5}", plr.Name, plr.Popcorn, plr.Position,
-                            plr.Height, plr.Weight, plr.Age);
-
-                    }
-                    else
-                    {
 
 
 
@@ -62,12 +44,25 @@ namespace BallPlayerUpdater
 
                 }
 
-
-            }
-                    
                 Console.ReadLine();
+
             }
+
+
         }
+
+
+
+
+
+
+
+
     }
+                    
+               
+}
+        
+    
 
 
